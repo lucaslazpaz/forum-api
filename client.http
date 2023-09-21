@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:3333
+@accessToken = {{authenticate.response.body.access_token}}
+
+# @name create_account
+POST {{baseUrl}}/accounts
+Content-Type: application/json
+
+{
+    "name": "Lalalala",
+    "email": "lalala@gmail.com",
+    "password": "123456"
+}
+
+###
+
+# @name authenticate
+POST {{baseUrl}}/sessions
+Content-Type: application/json
+
+{
+    "email": "lalala@gmail.com",
+    "password": "123456"
+}
+
+###
+
+# @name create-question
+POST {{baseUrl}}/questions
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "title": "Nova pergunta",
+    "content": "Conteúdo da pergunta"
+}
+
+###
