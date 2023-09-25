@@ -30,8 +30,13 @@ Content-Type: application/json
 Authorization: Bearer {{accessToken}}
 
 {
-    "title": "Nova pergunta",
-    "content": "Conteúdo da pergunta"
+    "title": "Nova pergunta 2",
+    "content": "Conteúdo da pergunta 2"
 }
 
 ###
+
+# @name fetch-questions
+GET {{baseUrl}}/questions?page=1&limit=2
+Content-Type: application/json
+Authorization: Bearer {{accessToken}}
