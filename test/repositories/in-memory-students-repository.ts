@@ -1,23 +1,23 @@
 import { DomainEvents } from '@/core/events/domain-events'
 import { StudentsRepository } from '@/domain/forum/application/repositories/students-repository'
-import { Question } from '@/domain/forum/enterprise/entities/question'
+import { Student } from '@/domain/forum/enterprise/entities/student'
 
 export class InMemoryStudentsRepository implements StudentsRepository {
-  public items: Question[] = []
+  public items: Student[] = []
 
   async findByEmail(email: string) {
-    const question = this.items.find((item) => item.email.toString() === email)
+    const student = this.items.find((item) => item.email === email)
 
-    if (!question) {
+    if (!student) {
       return null
     }
 
-    return question
+    return student
   }
 
-  async create(question: Question) {
-    this.items.push(question)
+  async create(student: Student) {
+    this.items.push(student)
 
-    DomainEvents.dispatchEventsForAggregate(question.id)
+    DomainEvents.dispatchEventsForAggregate(student.id)
   }
 }
