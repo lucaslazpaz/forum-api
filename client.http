@@ -40,3 +40,9 @@ Authorization: Bearer {{accessToken}}
 GET {{baseUrl}}/questions?page=1
 Content-Type: application/json
 Authorization: Bearer {{accessToken}}
+
+###
+
+# @name os-info
+GET {{baseUrl}}/os
+Content-Type: application/json
