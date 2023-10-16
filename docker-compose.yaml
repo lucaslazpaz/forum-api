@@ -29,9 +29,10 @@ services:
       - postgres
     networks:
       - backend-network
-  
+
   nginx:
     image: nginx:latest
+    container_name: nginx
     volumes:
       - ./conf.d:/etc/nginx/conf.d
     depends_on:
