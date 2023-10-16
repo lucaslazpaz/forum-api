@@ -13,6 +13,9 @@ zero_downtime_deploy() {
   service_name=backend
   old_container_id=$(docker ps -f name=$service_name -q | tail -n1)
 
+  # Build do serviço "backend" (certifique-se de que o Docker Compose também esteja configurado para fazer o build)
+  docker-compose build $service_name
+
   # Bring a new container online, running new code
   # (NGINX continues routing to the old container only)
   echo "Starting a new container..."
